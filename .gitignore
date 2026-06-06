@@ -1,0 +1,9 @@
+.env
+__pycache__/
+dataset/
+*.wav
+*.webm
+chunks/
+.venv/
+*.mp4
+*.pyc
