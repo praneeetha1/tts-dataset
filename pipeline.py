@@ -182,8 +182,9 @@ def run(url, lang, source_type, start=None, end=None, local_file=None):
         print(f"  OK  {seg['file']} | {emotion} | {seg['duration_seconds']:.1f}s")
         written += 1
 
-    # Cleanup
-    os.remove(downloaded)
+    # Cleanup — only delete the download if it was fetched by yt-dlp, not a local file the user provided
+    if not local_file:
+        os.remove(downloaded)
     os.remove(full_wav)
 
     print(f"\nDone. {written} segments written, {skipped} skipped.")
